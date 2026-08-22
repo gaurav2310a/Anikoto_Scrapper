@@ -1,0 +1,37 @@
+{
+  "name": "anikoto-api",
+  "version": "1.0.0",
+  "description": "This is an Awesome tool to fetch data from Anikoto",
+  "keywords": [
+    "anime",
+    "anime-api-free",
+    "hianime",
+    "anipub",
+    "anikoto",
+    "anikoto-api"
+  ],
+  "homepage": "https://github.com/Arisu-Yamabuki/Anikoto-API#readme",
+  "bugs": {
+    "url": "https://github.com/Arisu-Yamabuki/Anikoto-API/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Arisu-Yamabuki/Anikoto-API.git"
+  },
+  "license": "GPL-3.0",
+  "author": "Arisu Yamabuki",
+  "type": "commonjs",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "dependencies": {
+    "axios": "^1.16.1",
+    "cheerio": "^1.2.0",
+    "dayjs": "^1.11.20",
+    "express": "^5.2.1",
+    "express-rate-limit": "^8.5.2",
+    "morgan": "^1.10.1"
+  },
+  "devDependencies": {}
+}

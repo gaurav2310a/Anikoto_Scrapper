@@ -1,4 +1,4 @@
-const { httpServerHandler } = require("cloudflare:node");
-const app = require("./app");
+import { httpServerHandler } from "cloudflare:node";
+import app from "./app.js";
 
-module.exports = httpServerHandler({ port: 3005 }, app);
+export default httpServerHandler({ port: 3005 }, app);

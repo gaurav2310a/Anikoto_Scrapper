@@ -39,8 +39,7 @@ app.get("/", (req, res) => {
 app.get("/schedule", async (req, res) => {
     try {
         const time = req.query.time;
-        const Schedule = await schedule(time);
-        res.json(Schedule);
+        res.json(await schedule(time));
     } catch (error) {
         console.error(error);
         res.status(500).json({ success: false, error: "Failed to fetch schedule" });
@@ -50,8 +49,7 @@ app.get("/schedule", async (req, res) => {
 app.get("/page", async (req, res) => {
     try {
         const link = req.query.name;
-        const Id = await id(link);
-        res.json(Id);
+        res.json(await id(link));
     } catch (error) {
         console.error(error);
         res.status(500).json({ success: false, error: "Failed to fetch page data" });
@@ -61,8 +59,7 @@ app.get("/page", async (req, res) => {
 app.get("/episodes", async (req, res) => {
     try {
         const ID = req.query.id;
-        const Ep = await ep(ID);
-        res.json(Ep);
+        res.json(await ep(ID));
     } catch (error) {
         console.error(error);
         res.status(500).json({ success: false, error: "Failed to fetch episodes" });
@@ -72,12 +69,15 @@ app.get("/episodes", async (req, res) => {
 app.get("/info", async (req, res) => {
     try {
         const name = req.query.name;
-        const Info = await info(name);
-        res.json(Info);
+        res.json(await info(name));
     } catch (error) {
         console.error(error);
         res.status(500).json({ success: false, error: "Failed to fetch info" });
     }
 });
+
+// Cloudflare Workers' Node HTTP compatibility uses this port as the
+// internal routing key for httpServerHandler.
+app.listen(3005);
 
 module.exports = app;
